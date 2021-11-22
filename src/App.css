@@ -44,6 +44,12 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+@media screen and (max-width: 992px) {
+  .divider {
+    display: none !important;
+  }
+}
+
 .dashboard-button {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -54,7 +60,53 @@
 
 @media (min-width: 992px) {
   .nav-padding {
-    padding-left: 120px;
-    padding-right: 120px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
+}
+
+.hero-main-text {
+  color: #92fcc3;
+
+  font-family: Rubik;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 76px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.hero-sub-text {
+  width: 435px;
+
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+.hero-button {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 16px 16px 24px;
+
+  width: 192px;
+  height: 64px;
+  left: 0px;
+  top: 372px;
+  border-radius: 32px;
+
+  border: none;
 }

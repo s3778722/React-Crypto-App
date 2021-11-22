@@ -1,4 +1,5 @@
 import React from "react";
+import { default as divider } from "../assets/divider.svg";
 
 const Navbar = () => {
   return (
@@ -45,7 +46,8 @@ const Navbar = () => {
                   News
                 </a>
               </li>
-              <li class="nav-item px-3">
+              <img src={divider} class="mx-3 divider" />
+              <li class="nav-item">
                 <a
                   class="nav-link text-white btn-primary"
                   style={{
