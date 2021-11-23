@@ -23,7 +23,7 @@ const Hero = () => {
               <img src={icon} class="ms-2" />
             </button>
           </div>
-          <div class="col-md col-md-pull-6">
+          <div class="col-md col-md-pull-6 floating">
             <img src={logo} class="img-fluid" />
           </div>
         </div>
