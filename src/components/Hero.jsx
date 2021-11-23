@@ -6,7 +6,7 @@ import { default as waves } from "../assets/waves.svg";
 const Hero = () => {
   return (
     <>
-      <div class="container text-white">
+      <div class="container text-white ">
         <div class="row align-items-center ">
           <div class="col-md col-md-push-6">
             <h1 class="hero-main-text">
