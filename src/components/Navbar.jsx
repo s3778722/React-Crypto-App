@@ -1,5 +1,6 @@
 import React from "react";
 import { default as divider } from "../assets/divider.svg";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -8,7 +9,7 @@ const Navbar = () => {
         <div class="container-fluid mt-5" style={{ fontWeight: 500 }}>
           <a
             class="navbar-brand"
-            href="#"
+            href="/"
             style={{ fontFamily: "Inter", fontWeight: 600 }}
           >
             CRYPTO REPUBLIC
@@ -27,28 +28,29 @@ const Navbar = () => {
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">
+                <Link to="/" class="nav-link text-white">
                   Home
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">
+                <Link to="/cryptocurrencies" class="nav-link text-white">
                   Cryptocurrencies
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">
+                <Link to="/exchanges" class="nav-link text-white">
                   Exchanges
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">
+                <Link to="/news" class="nav-link text-white">
                   News
-                </a>
+                </Link>
               </li>
               <img src={divider} class="mx-3 divider" />
               <li class="nav-item">
-                <a
+                <Link
+                  to="/dashboard"
                   class="nav-link text-white btn-primary"
                   style={{
                     paddingLeft: 25,
@@ -57,7 +59,7 @@ const Navbar = () => {
                   }}
                 >
                   Dashboard
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

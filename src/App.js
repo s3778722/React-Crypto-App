@@ -1,17 +1,55 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import {
+  Navbar,
+  Hero,
+  Cryptocurrencies,
+  News,
+  Crypto,
+  Exchanges,
+  Dashboard,
+  Footer,
+} from "./components/routes";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <div className="background-black-container ">
-        <Navbar />
-        <br />
-        <Hero />
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <div className="background-black-container">
+                <Navbar />
+                <br />
+                <Hero />
+              </div>
+            }
+          />
+          <Route
+            exact
+            path="/dashboard"
+            element={
+              <div className="background-dark-blue-container">
+                <Navbar />
+                <br />
+                <Dashboard />
+              </div>
+            }
+          />
+
+          <Route
+            exact
+            path="/cryptocurrencies"
+            element={<Cryptocurrencies />}
+          />
+          <Route exact path="/exchanges" element={<Exchanges />} />
+          <Route exact path="/news" element={<News />} />
+          <Route exact path="/crypto/:coinId" element={<Crypto />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 
