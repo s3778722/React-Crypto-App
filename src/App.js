@@ -10,8 +10,11 @@ import {
   Footer,
 } from "./components/routes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useGetGlobalStatsQuery } from "./services/cryptoApi";
 
 function App() {
+  const { data, error, isLoading } = useGetGlobalStatsQuery();
+  console.log(data.data.totalCoins);
   return (
     <Router>
       <div className="App">
