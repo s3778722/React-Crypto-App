@@ -35,6 +35,7 @@ function App() {
                 <Navbar />
                 <br />
                 <Dashboard />
+                <Cryptocurrencies />
               </div>
             }
           />

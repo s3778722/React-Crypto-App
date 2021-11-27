@@ -17,9 +17,19 @@ export const cryptoApi = createApi({
         },
       }),
     }),
+    getCoins: builder.query({
+      query: () => ({
+        url: `/coins`,
+        headers: {
+          "x-rapidapi-host": "coinranking1.p.rapidapi.com",
+          "x-rapidapi-key":
+            "325cd078c2msh71b8e6b04142541p1f7019jsnc86c65ed7aca",
+        },
+      }),
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetGlobalStatsQuery } = cryptoApi;
+export const { useGetGlobalStatsQuery, useGetCoinsQuery } = cryptoApi;
