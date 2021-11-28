@@ -18,8 +18,8 @@ export const cryptoApi = createApi({
       }),
     }),
     getCoins: builder.query({
-      query: () => ({
-        url: `/coins`,
+      query: (count) => ({
+        url: `/coins?limit=${count}`,
         headers: {
           "x-rapidapi-host": "coinranking1.p.rapidapi.com",
           "x-rapidapi-key":

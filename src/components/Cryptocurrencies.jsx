@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 import millify from "millify";
 import { useGetCoinsQuery } from "../services/cryptoApi";
 
-const Cryptocurrencies = () => {
-  const { data, error, isLoading, isFetching } = useGetCoinsQuery();
+const Cryptocurrencies = ({ minimal }) => {
+  const count = minimal ? 10 : 100;
+  const { data, error, isLoading, isFetching } = useGetCoinsQuery(count);
   const [cryptos, setCryptos] = useState(data?.data?.coins);
 
   useEffect(() => {
     setCryptos(data?.data?.coins);
   }, [data]);
 
-  if (isFetching) {
+  if (isFetching || isLoading) {
     return "";
   }
   console.log(cryptos);
@@ -22,12 +23,18 @@ const Cryptocurrencies = () => {
         <h3 className="text-start fw-light text-white-50 pe-3">
           Top 10 Cryptocurrencies in the World
         </h3>
-        <span>Show more</span>
+        <Link
+          to={"/cryptocurrencies"}
+          className="text-white-50"
+          style={{ textDecoration: "none" }}
+        >
+          <span>Show more</span>
+        </Link>
       </div>
       <div className="row g-3 ">
         {cryptos?.map((currency) => (
           <div class="col-xl-3 col-md-6" key={currency.id}>
-            <div class="card text-white" style={{ backgroundColor: "#16163F" }}>
+            <div class="card text-white" style={{ backgroundColor: "#13133A" }}>
               <div class="card-body">
                 <div className="card-header ">
                   <div class="d-flex justify-content-between">
@@ -73,9 +80,12 @@ const Cryptocurrencies = () => {
                   </p>
                 </div>
                 <div className="text-end">
-                  <a href="#" class="btn btn-outline-info btn-sm">
+                  <Link
+                    to={`/crypto/${currency.id}`}
+                    class="btn btn-outline-info btn-sm"
+                  >
                     Learn more
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

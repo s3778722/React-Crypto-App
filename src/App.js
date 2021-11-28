@@ -35,7 +35,7 @@ function App() {
                 <Navbar />
                 <br />
                 <Dashboard />
-                <Cryptocurrencies />
+                <Cryptocurrencies minimal={true} />
               </div>
             }
           />
