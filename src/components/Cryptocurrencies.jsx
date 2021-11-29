@@ -20,16 +20,26 @@ const Cryptocurrencies = ({ minimal }) => {
     <div className="container text-white">
       <h1 className="text-start">Cryptocurrencies</h1>
       <div className="d-flex justify-content-between">
-        <h3 className="text-start fw-light text-white-50 pe-3">
-          Top 10 Cryptocurrencies in the World
-        </h3>
-        <Link
-          to={"/cryptocurrencies"}
-          className="text-white-50"
-          style={{ textDecoration: "none" }}
-        >
-          <span>Show more</span>
-        </Link>
+        {minimal ? (
+          <>
+            <h3 className="text-start fw-light text-white-50 pe-3">
+              Top 10 Cryptocurrencies in the World
+            </h3>
+            <Link
+              to={"/cryptocurrencies"}
+              className="text-white-50"
+              style={{ textDecoration: "none" }}
+            >
+              <span>Show more</span>
+            </Link>
+          </>
+        ) : (
+          <>
+            <h3 className="text-start fw-light text-white-50 pe-3">
+              Top 100 Cryptocurrencies in the World
+            </h3>
+          </>
+        )}
       </div>
       <div className="row g-3 ">
         {cryptos?.map((currency) => (
@@ -92,6 +102,7 @@ const Cryptocurrencies = ({ minimal }) => {
           </div>
         ))}
       </div>
+      <br />
     </div>
   );
 };

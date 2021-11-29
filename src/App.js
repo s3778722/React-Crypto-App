@@ -43,7 +43,13 @@ function App() {
           <Route
             exact
             path="/cryptocurrencies"
-            element={<Cryptocurrencies />}
+            element={
+              <div className="background-dark-blue-container">
+                <Navbar />
+                <br />
+                <Cryptocurrencies />
+              </div>
+            }
           />
           <Route exact path="/exchanges" element={<Exchanges />} />
           <Route exact path="/news" element={<News />} />
