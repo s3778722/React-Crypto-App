@@ -27,8 +27,15 @@ const Cryptocurrencies = ({ minimal }) => {
 
   console.log(cryptos);
   return (
+    
     <div className="container text-white">
+      {minimal &&
+      <div className="crypto-search-bar pb-3">
+        <input type="text" class="form-control border border-info bg-transparent text-white" placeholder="Search Cryptocurrency"/>
+      </div>
+      } 
       <h1 className="text-start">Cryptocurrencies</h1>
+     
       <div className="d-flex justify-content-between">
         {minimal ? (
           <>
@@ -42,13 +49,18 @@ const Cryptocurrencies = ({ minimal }) => {
             >
               <span>Show more</span>
             </Link>
+           
           </>
         ) : (
           <>
             <h3 className="text-start fw-light text-white-50 pe-3">
               Top 100 Cryptocurrencies in the World
             </h3>
+            <div className="crypto-search-bar pb-3">
+              <input type="text" class="form-control" placeholder="Search Cryptocurrency"/>
+            </div>
           </>
+
         )}
       </div>
       <div className="row g-3 ">
