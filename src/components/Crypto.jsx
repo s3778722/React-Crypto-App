@@ -3,7 +3,7 @@ import React from "react";
 const Crypto = () => {
   return (
     <div>
-      <h1>Crypto</h1>
+      <h1>Crypto Info</h1>
     </div>
   );
 };
