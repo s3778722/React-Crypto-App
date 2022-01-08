@@ -5,15 +5,25 @@ import { useGetCoinsQuery } from "../services/cryptoApi";
 
 const Cryptocurrencies = ({ minimal }) => {
   const count = minimal ? 10 : 100;
-  const { data, error, isLoading, isFetching } = useGetCoinsQuery(count);
+  const { data, isLoading, isFetching } = useGetCoinsQuery(count);
   const [cryptos, setCryptos] = useState(data?.data?.coins);
+  const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
     setCryptos(data?.data?.coins);
   }, [data]);
 
+  useEffect(() => {
+    const filteredData  = data?.data?.coins.filter((coin) => coin.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    setCryptos(filteredData)
+  }, [data?.data?.coins,searchTerm])
+
   if (isFetching || isLoading) {
     return "";
+  }
+
+  const searchFunctionEvent = (e) => {
+    setSearchTerm(e.target.value)
   }
 
   const checkSafeInteger = (currency) => {
@@ -24,14 +34,14 @@ const Cryptocurrencies = ({ minimal }) => {
       precision: 3,
     }))
   }
-
+  
   console.log(cryptos);
   return (
     
     <div className="container text-white">
       {minimal &&
       <div className="crypto-search-bar pb-3">
-        <input type="text" class="form-control border border-info bg-transparent text-white" placeholder="Search Cryptocurrency"/>
+        <input type="text" class="form-control border border-info bg-transparent text-white" placeholder="Search Cryptocurrency" onChange={searchFunctionEvent}/>
       </div>
       } 
       <h1 className="text-start">Cryptocurrencies</h1>
@@ -57,10 +67,9 @@ const Cryptocurrencies = ({ minimal }) => {
               Top 100 Cryptocurrencies in the World
             </h3>
             <div className="crypto-search-bar pb-3">
-              <input type="text" class="form-control" placeholder="Search Cryptocurrency"/>
+              <input type="text" class="form-control  border border-info bg-transparent text-white" placeholder="Search Cryptocurrency" onChange={searchFunctionEvent}/>
             </div>
           </>
-
         )}
       </div>
       <div className="row g-3 ">
