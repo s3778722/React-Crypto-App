@@ -19,7 +19,6 @@ const Hero = () => {
             <br />
             <Link
               to="/dashboard"
-              type="button"
               class="hero-button text-white btn-primary"
             >
               Get Started

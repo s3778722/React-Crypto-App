@@ -15,6 +15,16 @@ const Cryptocurrencies = ({ minimal }) => {
   if (isFetching || isLoading) {
     return "";
   }
+
+  const checkSafeInteger = (currency) => {
+    if (currency.circulatingSupply > Number.MAX_SAFE_INTEGER || currency.circulatingSupply < Number.MIN_SAFE_INTEGER){
+      return currency.circulatingSupply
+    }
+    return (millify(currency.circulatingSupply, {
+      precision: 3,
+    }))
+  }
+
   console.log(cryptos);
   return (
     <div className="container text-white">
@@ -75,14 +85,12 @@ const Cryptocurrencies = ({ minimal }) => {
                   </p>
                   <p>
                     Circulating Supply:{" "}
-                    {currency.circulatingSupply &&
-                      millify(currency.circulatingSupply, {
-                        precision: 3,
-                      })}
+                    {currency.circulatingSupply && 
+                      checkSafeInteger(currency)}
                   </p>
                   <p>
                     Change:{" "}
-                    {currency.circulatingSupply &&
+                    {currency.change &&
                       millify(currency.change, {
                         precision: 2,
                       })}
