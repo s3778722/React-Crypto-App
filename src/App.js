@@ -5,13 +5,14 @@ import {
   Cryptocurrencies,
   News,
   Crypto,
-  Exchanges,
   Dashboard,
   Footer,
 } from "./components/routes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+require('dotenv').config()
 
 function App() {
+  console.log(process.env)
   return (
     <Router>
       <div className="App">
@@ -36,6 +37,7 @@ function App() {
                 <br />
                 <Dashboard />
                 <Cryptocurrencies minimal={true} />
+                <News minimal={true} />
               </div>
             }
           />
@@ -51,10 +53,31 @@ function App() {
               </div>
             }
           />
-          <Route exact path="/exchanges" element={<Exchanges />} />
-          <Route exact path="/news" element={<News />} />
-          <Route exact path="/crypto/:coinId" element={<Crypto />} />
+        
+          <Route
+            exact
+            path="/news"
+            element={
+              <div className="background-dark-blue-container">
+                <Navbar />
+                <br />
+                <News />
+              </div>
+            }
+          />
+          <Route
+            exact
+            path="/crypto/:coinId"
+            element={
+              <div className="background-dark-blue-container">
+                <Navbar />
+                <br />
+                <Crypto />
+              </div>
+            }
+          />
         </Routes>
+        <Footer/>
       </div>
     </Router>
   );

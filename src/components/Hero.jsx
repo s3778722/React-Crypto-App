@@ -5,28 +5,28 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <>
-      <div class="container text-white">
-        <div class="row align-items-center ">
-          <div class="col-md col-md-push-6">
-            <h1 class="hero-main-text">
+      <div className="container text-white">
+        <div className="row align-items-center ">
+          <div className="col-md col-md-push-6">
+            <h1 className="hero-main-text">
               Your Go To Crypto Platform for Better Investment.
             </h1>
             <br />
-            <p class="hero-sub-text">
+            <p className="hero-sub-text">
               A brand-new cryptocurrency platform for the up-to-date information
               related to cryptocurrencies, exchanges, and news.
             </p>
             <br />
             <Link
               to="/dashboard"
-              class="hero-button text-white btn-primary"
+              className="hero-button text-white btn-primary"
             >
               Get Started
-              <img src={icon} class="ms-2" />
+              <img src={icon} className="ms-2" alt="icon"/>
             </Link>
           </div>
-          <div class="col-md col-md-pull-6 floating">
-            <img src={logo} class="img-fluid" />
+          <div className="col-md col-md-pull-6 floating">
+            <img src={logo} className="img-fluid" alt="bitcoin" />
           </div>
         </div>
       </div>

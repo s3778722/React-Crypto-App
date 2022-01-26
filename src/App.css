@@ -149,3 +149,16 @@
     transform: translate(0, -0px);
   }
 }
+
+.cards {
+  transition: all 0.2s ease;
+  cursor: pointer
+}
+
+.cards:hover {
+  transform: scale(0.95)
+}
+
+.card-shadow {
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 1);
+}
