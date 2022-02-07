@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import millify from "millify";
 import { useGetCoinsQuery } from "../services/cryptoApi";
-
+import Spinner from "./Spinner";
 const Cryptocurrencies = ({ minimal }) => {
   const count = minimal ? 10 : 100;
   const { data, isLoading, isFetching } = useGetCoinsQuery(count);
   const [cryptos, setCryptos] = useState(data?.data?.coins);
   const [searchTerm, setSearchTerm] = useState("");
+
 
   useEffect(() => {
     setCryptos(data?.data?.coins);
@@ -21,7 +22,7 @@ const Cryptocurrencies = ({ minimal }) => {
   }, [data?.data?.coins, searchTerm]);
 
   if (isFetching || isLoading) {
-    return "Loading...";
+    return <Spinner/>;
   }
 
   const searchFunctionEvent = (e) => {

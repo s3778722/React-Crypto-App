@@ -1,10 +1,11 @@
 import React from "react";
 import { useGetGlobalStatsQuery } from "../services/cryptoApi";
 import millify from "millify";
+import Spinner from "./Spinner";
 const Dashboard = () => {
   const { data, isLoading } = useGetGlobalStatsQuery();
   if (isLoading) {
-    return "Loading...";
+    return <Spinner/>;
   }
   return (
     <div className="container text-white">

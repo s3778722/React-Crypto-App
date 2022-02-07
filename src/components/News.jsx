@@ -4,6 +4,7 @@ import { useGetCryptoNewsQuery } from "../services/newsApi";
 import { useGetCoinsQuery } from "../services/cryptoApi";
 import moment from "moment";
 import cryptoDefault from "../assets/crypto-default.jpg";
+import Spinner from "./Spinner";
 const News = ({ minimal }) => {
   const count = minimal ? 10 : 100;
   const [newsCategory, setNewsCategory] = useState("Cryptocurrency");
@@ -15,7 +16,7 @@ const News = ({ minimal }) => {
   const { data } = useGetCoinsQuery(100);
 
   if (isFetching || isLoading || !cryptoNews?.value) {
-    return "Loading...";
+    return <Spinner/>;
   }
 
   const defaultImage = cryptoDefault;

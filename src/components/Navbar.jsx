@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-transparent nav-padding">
-        <div className="container-fluid mt-lg-5" style={{ fontWeight: 500 }}>
+        <div className="container-fluid mt-3 mt-lg-5" style={{ fontWeight: 500 }}>
           <a
             className="navbar-brand"
             href="/"

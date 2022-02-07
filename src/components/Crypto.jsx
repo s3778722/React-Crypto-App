@@ -7,6 +7,7 @@ import {
 import millify from "millify";
 import parse from "html-react-parser";
 import Chart from "./Chart";
+import Spinner from "./Spinner";
 
 const Crypto = () => {
   const { coinId } = useParams();
@@ -19,7 +20,7 @@ const Crypto = () => {
   const cryptoDetails = data?.data?.coin;
 
   if (isFetching) {
-    return "Loading...";
+    return <Spinner/>;
   }
   
   const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
