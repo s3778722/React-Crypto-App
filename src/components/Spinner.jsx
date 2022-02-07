@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import HashLoader from "react-spinners/HashLoader";
 
 const Spinner = () => {
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 4000);
-  }, []);
+  const [loading] = useState(true);
+
 
   return (
     <>

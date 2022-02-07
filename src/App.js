@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 require('dotenv').config()
 
 function App() {
-  console.log(process.env)
+ 
   return (
     <Router>
       <div className="App">

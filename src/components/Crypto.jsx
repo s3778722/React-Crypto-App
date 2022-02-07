@@ -18,7 +18,7 @@ const Crypto = () => {
     timeperiod,
   });
   const cryptoDetails = data?.data?.coin;
-
+  console.log(cryptoDetails)
   if (isFetching) {
     return <Spinner/>;
   }
@@ -50,7 +50,7 @@ const Crypto = () => {
       value: `$${cryptoDetails.allTimeHigh.price}`,
     },
     {
-      title: "Change",
+      title: "24h Change",
       value: `${cryptoDetails.change}%`,
     },
   ];
@@ -91,11 +91,13 @@ const Crypto = () => {
             {cryptoDetails.name} - {cryptoDetails.symbol}
           </h1>
         </div>
+        <div className="d-lg-flex justify-content-between">
         <p className="text-white-50">
           {cryptoDetails.name} live price in US Dollar (USD). View crypto
-          statistics, market cap and supply.
+          statistics, market cap and supply. 
         </p>
-
+        <p className="text-white">Change: {coinHistory?.data?.change}%</p>
+        </div>
         <div className="pb-3">
           <select
             className="form-select border border-info bg-transparent text-white"
@@ -112,6 +114,7 @@ const Crypto = () => {
         </div>
         <Chart coinHistory={coinHistory} />
         <br />
+        
         <div className="d-flex flex-column flex-lg-row justify-content-around">
           <div>
             <h5 className="mb-3">{cryptoDetails.name} Key Statistics</h5>

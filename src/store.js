@@ -15,5 +15,6 @@ export const store = configureStore({
   // getDefaultMiddleware().concat(pokemonApi.middleware),
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(cryptoApi.middleware),
+  
 });
 setupListeners(store.dispatch);

@@ -11,10 +11,11 @@ const Chart = ({ coinHistory }) => {
     coinPrice.push(coinHistory?.data?.history[i].price);
   }
 
-
   for (let i = 0; i < coinHistory?.data?.history?.length; i++) {
     coinTime.push(
-      new Date(coinHistory?.data?.history[i].timestamp*1000).toLocaleDateString("en-US")
+      new Date(
+        coinHistory?.data?.history[i].timestamp * 1000
+      ).toLocaleDateString("en-US")
     );
   }
 
@@ -35,15 +36,13 @@ const Chart = ({ coinHistory }) => {
     scales: {
       x: {
         reverse: true,
-       
-     
-      }
-    }
-  }
-
+      },
+    },
+  };
 
   return (
     <div>
+    
       <Line data={data} options={options} />
     </div>
   );
