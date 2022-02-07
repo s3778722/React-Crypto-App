@@ -13,7 +13,7 @@ const Hero = () => {
             </h1>
             <br />
             <p className="hero-sub-text">
-              A brand-new cryptocurrency platform for the up-to-date information
+              A brand-new cryptocurrency platform for up-to-date information
               related to cryptocurrencies, exchanges, and news.
             </p>
             <br />
