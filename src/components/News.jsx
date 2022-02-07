@@ -27,7 +27,7 @@ const News = ({ minimal }) => {
 
   return (
     <div className="container text-white">
-      <div className="">
+      <div>
         {minimal && (
           <>
             <h1 className="text-start">News</h1>
@@ -74,7 +74,7 @@ const News = ({ minimal }) => {
               className="cards"
               style={{ textDecoration: "none" }}
             >
-              <div className="card text-white bg-transparent hover card-shadow">
+              <div className="card p-3  text-white bg-transparent hover card-shadow cards">
                 <div className="row">
                   <div className="col-md-3">
                     <div className="position-relative snipimage">
