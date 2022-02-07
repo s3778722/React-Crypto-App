@@ -64,7 +64,7 @@ const News = ({ minimal }) => {
           </div>
         )}
       </div>
-      <div className="row g-3 ">
+      <div className="row g-3">
         {cryptoNews?.value.map((news, index) => (
           <div key={index}>
             <a
@@ -73,7 +73,7 @@ const News = ({ minimal }) => {
               className="cards"
               style={{ textDecoration: "none" }}
             >
-              <div className="card p-3 text-white bg-transparent hover card-shadow">
+              <div className="card text-white bg-transparent hover card-shadow">
                 <div className="row">
                   <div className="col-md-3">
                     <div className="position-relative snipimage">
