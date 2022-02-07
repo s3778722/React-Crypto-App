@@ -21,7 +21,7 @@ const Cryptocurrencies = ({ minimal }) => {
   }, [data?.data?.coins, searchTerm]);
 
   if (isFetching || isLoading) {
-    return "";
+    return "Loading...";
   }
 
   const searchFunctionEvent = (e) => {
