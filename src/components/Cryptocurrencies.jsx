@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import millify from "millify";
 import { useGetCoinsQuery } from "../services/cryptoApi";
 import Spinner from "./Spinner";
+import arrowUp from "../assets/arrow-up.png";
+import arrowDown from "../assets/arrow-down.png";
 const Cryptocurrencies = ({ minimal }) => {
   const count = minimal ? 10 : 100;
   const { data, isLoading, isFetching } = useGetCoinsQuery(count);
   const [cryptos, setCryptos] = useState(data?.data?.coins);
   const [searchTerm, setSearchTerm] = useState("");
-
 
   useEffect(() => {
     setCryptos(data?.data?.coins);
@@ -22,7 +23,7 @@ const Cryptocurrencies = ({ minimal }) => {
   }, [data?.data?.coins, searchTerm]);
 
   if (isFetching || isLoading) {
-    return <Spinner/>;
+    return <Spinner />;
   }
 
   const searchFunctionEvent = (e) => {
@@ -65,7 +66,10 @@ const Cryptocurrencies = ({ minimal }) => {
       <div className="row g-3 ">
         {cryptos?.map((currency) => (
           <div className="col-xl-3 col-md-6" key={currency.uuid}>
-            <div className="card text-white" style={{ backgroundColor: "#13133A" }}>
+            <div
+              className="card text-white"
+              style={{ backgroundColor: "#13133A" }}
+            >
               <div className="card-body">
                 <div className="card-header ">
                   <div className="d-flex justify-content-between">
@@ -97,6 +101,21 @@ const Cryptocurrencies = ({ minimal }) => {
                   <p>BTC Price: {currency.btcPrice}</p>
                   <p>
                     Change:{" "}
+                    {currency.change > 0 ? (
+                      <img
+                        src={arrowUp}
+                        alt=""
+                        style={{ width: 25, height: 25 }}
+                        className="mx-2"
+                      />
+                    ) : (
+                      <img
+                        src={arrowDown}
+                        alt=""
+                        style={{ width: 25, height: 25 }}
+                        className="mx-2"
+                      />
+                    )}
                     {currency.change &&
                       millify(currency.change, {
                         precision: 2,

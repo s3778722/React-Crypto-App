@@ -8,6 +8,8 @@ import millify from "millify";
 import parse from "html-react-parser";
 import Chart from "./Chart";
 import Spinner from "./Spinner";
+import arrowUp from "../assets/arrow-up.png";
+import arrowDown from "../assets/arrow-down.png";
 
 const Crypto = () => {
   const { coinId } = useParams();
@@ -18,11 +20,11 @@ const Crypto = () => {
     timeperiod,
   });
   const cryptoDetails = data?.data?.coin;
-  console.log(cryptoDetails)
+  console.log(cryptoDetails);
   if (isFetching) {
-    return <Spinner/>;
+    return <Spinner />;
   }
-  
+
   const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
   const setTimeEvent = (event) => {
@@ -92,11 +94,29 @@ const Crypto = () => {
           </h1>
         </div>
         <div className="d-lg-flex justify-content-between">
-        <p className="text-white-50">
-          {cryptoDetails.name} live price in US Dollar (USD). View crypto
-          statistics, market cap and supply. 
-        </p>
-        <p className="text-white">Change: {coinHistory?.data?.change}%</p>
+          <p className="text-white-50">
+            {cryptoDetails.name} live price in US Dollar (USD). View crypto
+            statistics, market cap and supply.
+          </p>
+          <div class="d-flex justify-content-center">
+            {coinHistory?.data?.change > 0 ? (
+              <img
+                src={arrowUp}
+                alt=""
+                style={{ width: 25, height: 25 }}
+                className="mx-3"
+              />
+            ) : (
+              <img
+                src={arrowDown}
+                alt=""
+                style={{ width: 25, height: 25 }}
+                className="mx-3"
+              />
+            )}
+
+            <p className="text-white">Change: {coinHistory?.data?.change}%</p>
+          </div>
         </div>
         <div className="pb-3">
           <select
@@ -114,7 +134,7 @@ const Crypto = () => {
         </div>
         <Chart coinHistory={coinHistory} />
         <br />
-        
+
         <div className="d-flex flex-column flex-lg-row justify-content-around">
           <div>
             <h5 className="mb-3">{cryptoDetails.name} Key Statistics</h5>
