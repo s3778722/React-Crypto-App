@@ -52,10 +52,12 @@ const News = ({ minimal }) => {
                 className="form-select border border-info bg-transparent text-white"
                 aria-label="Default select example"
                 onChange={(value) => setNewsEvent(value)}
-              > 
+              >
                 <option value="Cryptocurrency">Cryptocurrency</option>
                 {data?.data?.coins.map((c) => (
-                  <option value={c.name} key={c.name}>{c.name}</option>
+                  <option value={c.name} key={c.name}>
+                    {c.name}
+                  </option>
                 ))}
               </select>
             </div>
@@ -70,7 +72,6 @@ const News = ({ minimal }) => {
               rel="norefferer"
               className="cards"
               style={{ textDecoration: "none" }}
-        
             >
               <div className="card p-3 text-white bg-transparent hover card-shadow">
                 <div className="row">
@@ -102,6 +103,7 @@ const News = ({ minimal }) => {
 
                       <div className="d-flex justify-content-end align-items-center">
                         {" "}
+                        {/** 
                         <img
                           src={news.provider[0].image?.thumbnail?.contentUrl}
                           width="30"
@@ -109,6 +111,7 @@ const News = ({ minimal }) => {
                           className="rounded-circle me-2"
                           alt="thumbnail"
                         />
+                        */}
                         <div className="ms-2 d-flex flex-column">
                           <div className="d-flex flex-row align-items-center">
                             <h6>{news.provider[0].name}</h6>

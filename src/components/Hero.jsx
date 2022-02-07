@@ -19,11 +19,12 @@ const Hero = () => {
             <br />
             <Link
               to="/dashboard"
-              className="hero-button text-white btn-primary"
+              className="hero-button text-white btn-primary mb-3"
             >
               Get Started
               <img src={icon} className="ms-2" alt="icon"/>
             </Link>
+       
           </div>
           <div className="col-md col-md-pull-6 floating">
             <img src={logo} className="img-fluid" alt="bitcoin" />
